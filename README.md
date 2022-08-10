@@ -28,7 +28,7 @@ The classification might be preferable when needed to see the model's confidence
 
 ## Optimizers, Losses & Metrics
 
-Nadam was chosen as an optimizer, it showed minimizing better. There is pretty standard MSE for regression losses and sparse categorical crossentropy for classification.
+"ADAM" was chosen as an optimizer, it showed minimizing better. There is pretty standard MSE for regression losses and sparse categorical crossentropy for classification.
 
 Keras RMSE and MAE were used as metrics for regression. Need to note that due to coordinates normalization Keras RMSE will probably almost always have a bit greater value than Keras MAE becase lattitude and longtitude errors are averaged. That is for example one degree error on lattitude will have 1/180 normalized value and one degree on longtitude - 1/360. Then ```sqrt(mean([(1/180)**2, (1/360)**2]))``` will be greater than ```mean([1/180, 1/360])```. But it is just for information, the loss function still minimizes the error. Custom RMSE, MAE could be used for clarity, but no need really.
 
