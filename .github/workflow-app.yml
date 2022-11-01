@@ -1,0 +1,51 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+This workflow is starting as a scaffold for developing a Geo-Location_app.  The unique features of this app are as described in the "Inspiration" paper:
+
+"Geolocating Tweets in any Language at any Location", Session: Long - Analyzing Spatio-Temporal Data CIKM ’19, November 3–7, 2019, Beijing, China
+
+Description: Tweet Geo-location, utilizing context and text aspects of natural language processing (NLP) to develop a working method for performing this task
+
+Goal: Describe and Develop Archichetural basis for Text Analysis using Twitter, tweets, from a particularly large dataset, utilizing a combination of techniques ranging from:
+BOW+TfIDF, CNN, unicode-CNN, RNN or RNN+CNN+GRU 
+
+The Stated Requirement and its Deliverables are the Direct Result of Actions taken on this issue starting today.
+
+
+
+name: Python application
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pytest
