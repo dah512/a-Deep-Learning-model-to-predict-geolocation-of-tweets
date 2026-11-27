@@ -22,6 +22,7 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install -r services/api/requirements.txt
       - run: PYTHONPATH=gpcs/python pytest -q gpcs/python/tests
+      - run: pytest -q ops/tests
       - name: DB access tests + API integration tests
         env: { PGHOST: localhost, PGUSER: postgres, PGPASSWORD: postgres }
         run: |

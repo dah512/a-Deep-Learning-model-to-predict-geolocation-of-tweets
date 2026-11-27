@@ -25,7 +25,7 @@ Applicant type: **nonprofit** · Package: **SF424 (R&R) research package (NIH/CD
 
 | Component | Kind | Required | KB coverage | Missing KB keys |
 |---|---|---|---|---|
-| SF424 (R&R) cover | form | yes | 50% | org.uei, org.ein |
+| SF424 (R&R) cover | form | yes | 25% | org.legal_name, org.uei, org.ein |
 | Project/Performance Site Locations | form | yes | 100% | - |
 | Project Summary/Abstract | narrative | yes | 100% | - |
 | Project Narrative (public health relevance) | narrative | yes | 100% | - |
@@ -51,6 +51,7 @@ Applicant type: **nonprofit** · Package: **SF424 (R&R) research package (NIH/CD
 
 ## Applicant intake gaps
 
+- **legal_name**: Legal name exactly as registered in SAM.gov (SF424 item 8a must match SAM)
 - **uei**: Unique Entity ID (UEI) (Required for all federal awards (2 CFR 25))
 - **ein**: Employer Identification Number (SF424 item 8b)
 - **sam_status**: SAM.gov registration status and expiration (Must be active at submission and award)

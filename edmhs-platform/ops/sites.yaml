@@ -1,0 +1,89 @@
+# Site inventory for the daily review. One entry per public endpoint.
+# expect_status: HTTP status that means "working" (sign-in apps may answer 200 with a login page, or 401/302).
+# marker: text that must appear in the page body (catches blank pages and wrong deployments).
+# critical: true = families or staff depend on it (intake, records); a failure is SEV1.
+# owner_repo: where its engineering tasks (issues/PRs) live.
+# status: live | planned (planned sites are reported but never counted as failures).
+sites:
+  - id: edmhs-org
+    name: EDMHS.org (nonprofit hub)
+    url: https://edmhs.org
+    marker: EDMHS
+    critical: false
+    status: planned        # domain owned (registrar/DNS: Network Solutions); set to live after the Firebase cutover
+    owner_repo: dah512/a-Deep-Learning-model-to-predict-geolocation-of-tweets   # move to <org>/edmhs-org
+    health_url: https://edmhs.org/api/health
+  - id: edmhs-us
+    name: EDMHS company home
+    url: https://www.edmhs.us
+    marker: EDMHS
+    critical: false
+    status: live
+    owner_repo: dah512/edmhs-dash
+  - id: consulting
+    name: Portfolio & consulting
+    url: https://consulting.edmhs.us
+    critical: false
+    status: live
+    owner_repo: dah512/edmhs-consulting
+  - id: ict
+    name: Inner Combat Training
+    url: https://ict.edmhs.us
+    marker: Inner Combat Training
+    critical: true
+    status: live
+    owner_repo: dah512/ict-site
+    pages: [/approach.html, /curriculum.html, /enroll.html, /safeguards.html, /partners.html]
+  - id: kata
+    name: KATA (staff sign-in)
+    url: https://kata.edmhs.us
+    expect_status: [200, 302, 401]
+    critical: true
+    status: live
+    owner_repo: dah512/edm-platform
+  - id: pmsg
+    name: Pain Management Support Group
+    url: https://pmsg.edmhs.us
+    critical: false
+    status: live
+    owner_repo: dah512/pmsg-platform
+  - id: pmsg-curriculum
+    name: PMSG curriculum hub
+    url: https://curriculum-pmsg.edmhs.us
+    critical: false
+    status: live
+    owner_repo: dah512/pmsg-platform
+  - id: nabs
+    name: NABS
+    url: https://nabs.edmhs.us
+    critical: false
+    status: live
+    owner_repo: dah512/nabs
+  - id: voxlab
+    name: VOX LAB (staff sign-in)
+    url: https://voxlab.edmhs.us
+    expect_status: [200, 302, 401]
+    critical: false
+    status: live
+    owner_repo: dah512/edm-platform
+  - id: app
+    name: EDMHS app
+    url: https://app.edmhs.us
+    critical: false
+    status: live
+    owner_repo: dah512/edm-platform
+
+# Registered domains: the weekly report shows days until registration expiry (RDAP).
+domains:
+  - {name: edmhs.org, registrar: Network Solutions}
+  - {name: edmhs.us}
+
+# Repositories whose open/closed issues and pull requests count as engineering tasks in the weekly report.
+task_repos:
+  - dah512/ict-site
+  - dah512/pmsg-platform
+  - dah512/edmhs-dash
+  - dah512/edmhs-consulting
+  - dah512/edm-platform
+  - dah512/nabs
+  - dah512/a-Deep-Learning-model-to-predict-geolocation-of-tweets   # staging for edmhs.org until the new repo exists

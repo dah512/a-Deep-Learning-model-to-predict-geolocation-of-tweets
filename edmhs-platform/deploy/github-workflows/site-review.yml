@@ -1,0 +1,62 @@
+# Site engineering protocol automation (docs/ops/site_engineering_protocol.md).
+# Copy to .github/workflows/site-review.yml in the edmhs-org repository.
+#   Daily  10:43 UTC (5:43 a.m. Eastern): check every site, commit the report, open/update/close incident issues.
+#   Weekly Monday 11:07 UTC: aggregate the last 7 daily reports + engineering tasks, commit the weekly report,
+#                            and open it as an issue labeled `weekly-review` for sign-off.
+# Secrets: OPS_READ_TOKEN = fine-grained token with read-only Issues + Pull requests on every repo in
+# ops/sites.yaml task_repos (GITHUB_TOKEN alone can only see this repository).
+name: site-review
+on:
+  schedule:
+    - cron: "43 10 * * *"
+    - cron: "7 11 * * 1"
+  workflow_dispatch:
+    inputs:
+      weekly:
+        description: "Also build the weekly report now"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+  issues: write
+concurrency: { group: site-review, cancel-in-progress: false }
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - name: Daily site check
+        id: daily
+        run: |
+          D=$(date -u +%F); echo "date=$D" >> "$GITHUB_OUTPUT"
+          python ops/sitecheck.py --date "$D" || echo "sev1=true" >> "$GITHUB_OUTPUT"
+          cat "ops/reports/daily/$D.md" >> "$GITHUB_STEP_SUMMARY"
+      - name: Sync incident issues
+        env: { GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+        run: |
+          gh label create site-incident --color B60205 --description "Opened by the daily site review" 2>/dev/null || true
+          for s in sev1 sev2 sev3; do gh label create $s --color D93F0B 2>/dev/null || true; done
+          python ops/incidents.py "ops/reports/daily/${{ steps.daily.outputs.date }}.json"
+      - name: Weekly aggregate
+        if: github.event.schedule == '7 11 * * 1' || inputs.weekly
+        env: { GITHUB_TOKEN: "${{ secrets.OPS_READ_TOKEN || secrets.GITHUB_TOKEN }}" }
+        run: |
+          python ops/weekly.py --end "$(date -u -d yesterday +%F)"
+          W=$(ls -t ops/reports/weekly/*.md | head -1)
+          cat "$W" >> "$GITHUB_STEP_SUMMARY"
+          gh label create weekly-review --color 0E8A16 2>/dev/null || true
+          GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh issue create --title "Weekly site engineering review: $(basename "$W" .md)" \
+            --label weekly-review --body-file "$W"
+      - name: Commit reports
+        run: |
+          git config user.name "edmhs-site-review"
+          git config user.email "site-review@users.noreply.github.com"
+          git add ops/reports
+          git diff --cached --quiet || git commit -m "ops: site review ${{ steps.daily.outputs.date }}"
+          git push
+      - name: Fail on SEV1
+        if: steps.daily.outputs.sev1 == 'true'
+        run: echo "::error::A critical site is DOWN (SEV1). See the incident issue." && exit 1
