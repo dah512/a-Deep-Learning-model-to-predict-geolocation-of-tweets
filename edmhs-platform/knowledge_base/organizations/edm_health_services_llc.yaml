@@ -1,0 +1,26 @@
+id: edm_health_services_llc
+legal_name: "EDM Health Services, LLC"
+applicant_type: for_profit
+business_size: small_business      # TODO confirm against SBA size standard for NAICS code
+naics: "TODO (e.g., 621111 / 541511)"
+ein: "TODO"
+uei: "FSMJREGJGPJ3"
+cage: "91US7"
+sam_status: "active (verify expiration)"
+address: {city: Toledo, state: OH}
+county: Lucas
+website: "https://www.edmhs.us"
+mission: >-
+  Physician-led health services and health informatics company: chronic pain management, patient
+  safety, community health analytics, and the KATA youth behavioral health records platform.
+ownership: "TODO: owners >= 25%, any foreign ownership"
+leadership:
+  - name: "Darrell A. Hall, MD, MSCIS"
+    role: "Founder and principal"
+financials:
+  annual_budget: "TODO"
+  statements: "TODO: last 2 years financial statements"
+  profit_or_fee: "Not allowable on federal grants/cooperative agreements to for-profits (2 CFR 200.400(g); 45 CFR 75.216(b))"
+  cost_principles: "FAR 31.2 (48 CFR 31.2) for commercial organizations"
+  indirect_rate: "de minimis 15% MTDC if no negotiated rate"
+programs: [ict, kata, pmsg, nabs]

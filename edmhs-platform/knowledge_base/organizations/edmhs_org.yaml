@@ -1,0 +1,41 @@
+# EDMHS.org: nonprofit / community arm. Values marked TODO must be completed before submission.
+id: edmhs_org
+legal_name: "Empowered Disease Management Health Services (EDMHS.org)"   # TODO confirm exact incorporated name
+applicant_type: nonprofit
+tax_status: "TODO: 501(c)(3) determination letter, or 'nonprofit without 501(c)(3)'"
+ein: "TODO"
+uei: "TODO: register at SAM.gov (2-6 weeks)"
+sam_status: "not registered"
+grants_gov_ebiz_poc: "TODO"
+era_commons_institution: "TODO"
+address: {city: Toledo, state: OH, zip_codes_served: ["43607", "43610", "43620"]}
+county: Lucas
+congressional_district: "OH-09"   # TODO verify for applicant address
+website: "https://edmhs.org"
+mission: >-
+  Community-based, physician-led prevention and education for under-resourced Toledo
+  neighborhoods: youth violence prevention, chronic pain self-management, and privacy-preserving
+  community health analytics.
+origin: >-
+  Inner Combat Training began as a community project in partnership with Soul City Wrestling and
+  Boxing Clubs, serving the neighborhoods where the Neighborhood Health Association was founded.
+leadership:
+  - name: "Darrell A. Hall, MD, MSCIS"
+    role: "Founder; Program Director / Principal Investigator"
+    summary: >-
+      Residency-trained family physician (Medical College of Ohio), 14 years of community and
+      inner-city practice; MS Computer Information Systems (Boston University); certified Professional
+      Data Scientist (2022); former USAF communications-electronics officer (EUCOM, Defense Data
+      Network); 50 years of martial arts training (Goju Ryu, Shaolin, Qi Gong, Yang Tai Chi).
+board: []          # TODO nonprofit governing board (names, affiliations)
+financials:
+  annual_budget: "TODO"
+  audit: "TODO: most recent financial statements; Single Audit required if >= $1,000,000 federal expenditure/yr (2 CFR 200.501)"
+  indirect_rate: "de minimis 15% MTDC (2 CFR 200.414(f)) unless negotiated"
+partners:
+  - {name: "Neighborhood Health Association (NHA)", role: "FQHC; school-based clinics; behavioral health referral", letter: pending}
+  - {name: "Soul City Wrestling and Boxing Clubs", role: "Training floor; coaches; neighborhood standing", letter: pending}
+  - {name: "Toledo Public Schools", role: "Recruitment; FERPA data agreement", letter: pending}
+  - {name: "University evaluation partner (UToledo/BGSU)", role: "Evaluation; IRB; early-career researcher training", letter: pending}
+  - {name: "EDM Health Services, LLC", role: "KATA records platform (subrecipient, no fee)", letter: pending}
+programs: [ict, kata, pmsg]

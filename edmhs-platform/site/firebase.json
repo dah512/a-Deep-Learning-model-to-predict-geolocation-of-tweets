@@ -1,0 +1,8 @@
+{
+  "hosting": {
+    "public": "edmhs-org",
+    "ignore": ["firebase.json", "**/.*"],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
+}

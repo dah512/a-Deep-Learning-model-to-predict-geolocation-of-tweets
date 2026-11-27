@@ -1,0 +1,12 @@
+Package: gpcs
+Title: Grant Proposal Creation System (R implementation)
+Version: 0.1.0
+Authors@R: person("Darrell A.", "Hall", role = c("aut", "cre"), email = "dah512@edmhs.us")
+Description: Parses funding solicitations, applies standard federal application package
+    structures (SF424 R&R, SF-424), builds nonprofit/for-profit applicant profiles and a
+    compliance crosswalk. Mirrors the Python gpcs package for redundancy.
+License: MIT
+Encoding: UTF-8
+Imports: yaml, jsonlite
+Suggests: pdftools, plumber, testthat (>= 3.0.0)
+Config/testthat/edition: 3

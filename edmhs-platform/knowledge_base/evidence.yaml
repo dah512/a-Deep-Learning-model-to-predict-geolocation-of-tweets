@@ -1,0 +1,8 @@
+# Citations used by the drafter. verify: true means not yet checked against the source.
+zivin2001: {cite: "Zivin G, et al. Adolescence. 2001;36(143):443-459.", finding: "Traditional martial arts reduced violence-related behavior in at-risk middle-school boys.", verify: true}
+lakes_hoyt2004: {cite: "Lakes KD, Hoyt WT. J Appl Dev Psychol. 2004;25(3):283-302.", finding: "School-based Tae Kwon Do improved self-regulation.", verify: true}
+harwood2017: {cite: "Harwood A, Lavidor M, Rassovsky Y. Aggress Violent Behav. 2017;34:96-101.", finding: "Meta-analysis: martial arts reduced aggression/externalizing in youth.", verify: true}
+heller2017: {cite: "Heller SB, et al. Q J Econ. 2017;132(1):1-54.", finding: "Becoming a Man (CBT-informed) reduced violent-crime arrests ~45-50% during program.", verify: true}
+heller2014: {cite: "Heller SB. Science. 2014;346(6214):1219-1223.", finding: "Summer jobs reduced violent-crime arrests ~43%.", verify: true}
+branas2018: {cite: "Branas CC, et al. PNAS. 2018;115(12):2946-2951.", finding: "Vacant-lot greening reduced gun violence ~29% in very low-income neighborhoods.", verify: true}
+cdc2016: {cite: "David-Ferdon C, et al. CDC Technical Package for the Prevention of Youth Violence. 2016.", finding: "Six evidence-based strategy families.", verify: true}

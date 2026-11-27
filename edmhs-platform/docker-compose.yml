@@ -1,0 +1,61 @@
+# EDMHS platform: local stack.
+#   cp .env.example .env    # set passwords + PII_KEY
+#   docker compose up --build
+#
+#   http://localhost:8080           edmhs.org site
+#   http://localhost:5173           GPCS Grant Studio (React -> Python)
+#   http://localhost:4200           GPCS Grant Studio (Angular -> R)
+#   http://localhost:8000/docs      EDMHS API (intake + /gpcs), OpenAPI
+#   http://localhost:8001/__docs__/ GPCS R API (plumber)
+name: edmhs
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: edmhs
+      POSTGRES_USER: ${POSTGRES_USER:-edmhs}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      INTAKE_DB_PASSWORD: ${INTAKE_DB_PASSWORD:?set INTAKE_DB_PASSWORD}
+      ANALYTICS_DB_PASSWORD: ${ANALYTICS_DB_PASSWORD:?set ANALYTICS_DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d edmhs"]
+      interval: 5s
+      retries: 10
+
+  api:                       # Python: intake + GPCS (mounted at /gpcs)
+    build: { context: ., dockerfile: services/api/Dockerfile }
+    environment:
+      INTAKE_DATABASE_URL: postgresql://ict_api:${INTAKE_DB_PASSWORD}@db:5432/edmhs
+      ANALYTICS_DATABASE_URL: postgresql://ana_api:${ANALYTICS_DB_PASSWORD}@db:5432/edmhs
+      PII_KEY: ${PII_KEY:?set PII_KEY}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      CORS_ORIGINS: http://localhost:5173,http://localhost:8080
+    ports: ["8000:8000"]
+    depends_on: { db: { condition: service_healthy } }
+
+  gpcs-r:                    # R: GPCS mirror (plumber)
+    build: { context: ., dockerfile: gpcs/r/Dockerfile }
+    environment:
+      CORS_ORIGINS: http://localhost:4200
+    ports: ["8001:8001"]
+
+  web-react:
+    build: { context: web/react }
+    ports: ["5173:80"]
+    depends_on: [api]
+
+  web-angular:
+    build: { context: web/angular }
+    ports: ["4200:80"]
+    depends_on: [gpcs-r]
+
+  site:
+    build: { context: ., dockerfile: site/Dockerfile }
+    ports: ["8080:80"]
+
+volumes:
+  pgdata:

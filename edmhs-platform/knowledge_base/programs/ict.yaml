@@ -1,0 +1,28 @@
+id: ict
+name: "Inner Combat Training (ICT)"
+url: "https://ict.edmhs.us"
+tagline: "The hardest opponent a kid faces is the one in their own head."
+summary: >-
+  Free youth martial arts and behavioral wellness program in Toledo pairing traditional martial arts
+  (Chung Do Kwan Tae Kwon Do, Shorin-Ryu karate, Dragon Style Kung Fu, Qi Gong breathing) with
+  structured social-emotional learning, taught in small, stable cohorts. Instruction is keyed to
+  developmental stage (Erikson, Piaget) rather than age alone.
+population: {current_ages: [6, 16], yvpc_ages: [10, 24], zip_codes: ["43607", "43610", "43620"], medicaid_majority: true}
+schedule: "Monday-Thursday 9:00-11:30 a.m., four cohorts; cycle 1 = 5 weeks, later cycles 6 weeks + 1 week off"
+cost_to_families: "Free"
+weekly_skills: ["Respect", "Breathe, then choose", "Handling frustration", "Self-control", "Confidence"]
+developmental_bands:
+  - {ages: "10-11", erikson: "Industry vs. inferiority", piaget: "Concrete operational", focus: "Frustration tolerance and persistence"}
+  - {ages: "12-14", erikson: "Identity vs. role confusion (onset)", piaget: "Concrete to formal", focus: "Peer reactivity and self-consciousness"}
+  - {ages: "15-17", erikson: "Identity vs. role confusion", piaget: "Formal operational", focus: "Anger pathways, rumination; teaching younger students"}
+  - {ages: "18-24", erikson: "Intimacy vs. isolation", piaget: "Formal/post-formal", focus: "Paid peer mentor and assistant instructor roles"}
+safeguards:
+  - "ORC 2151.421 mandated reporting workflow (timestamped, routed)"
+  - "ORC 3707.511 health information stored as restricted data"
+  - "ORC 5122.04 minor behavioral health consent conditions in referral workflow"
+  - "Six roles: administrator, clinician, facilitator, program manager, analyst, intake coordinator"
+  - "Analytics on de-identified view only; identifiers cryptographically protected"
+  - "Consent captured as versioned, timestamped record"
+partners: ["Soul City Wrestling and Boxing Clubs", "EDM Health Services, LLC"]
+platform: kata
+evidence_keys: [zivin2001, lakes_hoyt2004, harwood2017, heller2017]

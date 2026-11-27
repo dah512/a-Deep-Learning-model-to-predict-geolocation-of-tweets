@@ -1,0 +1,16 @@
+[project]
+name = "gpcs"
+version = "0.1.0"
+description = "Grant Proposal Creation System (EDMHS)"
+requires-python = ">=3.11"
+dependencies = ["pypdf>=4", "PyYAML>=6", "fastapi>=0.110", "uvicorn>=0.29", "python-multipart>=0.0.9"]
+[project.optional-dependencies]
+claude = ["anthropic>=0.40"]
+dev = ["pytest>=8", "httpx>=0.27"]
+[project.scripts]
+gpcs = "gpcs.cli:main"
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools.packages.find]
+include = ["gpcs*"]

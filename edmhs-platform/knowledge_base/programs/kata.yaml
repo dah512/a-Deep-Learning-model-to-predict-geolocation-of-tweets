@@ -1,0 +1,11 @@
+id: kata
+name: "KATA records and safety-workflow platform"
+url: "https://kata.edmhs.us"
+summary: >-
+  Clinician application for youth behavioral health records and mandated-reporting safety workflows.
+  PostgreSQL with role-based access, row-level security, versioned consent, audit logging and a
+  de-identified analytics schema. Shared backend for ICT intake and collaborative KATA access.
+data_use: >-
+  Identifiable data stay in restricted schemas; analysts are granted only the de-identified analytics
+  views (keyed by salted hash). Data sharing with partners only under signed DUA/BAA; de-identified
+  research datasets deposited after primary publication.
