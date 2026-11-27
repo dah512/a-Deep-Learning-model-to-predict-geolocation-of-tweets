@@ -1,0 +1,7 @@
+.git
+**/node_modules/
+**/dist/
+web/
+site/edmhs-org/
+docs/
+*.pdf
