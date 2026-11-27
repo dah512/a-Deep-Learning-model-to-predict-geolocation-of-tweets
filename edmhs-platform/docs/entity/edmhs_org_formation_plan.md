@@ -21,7 +21,7 @@
 ```mermaid
 flowchart LR
   classDef crit fill:#8c2b42,color:#fff,stroke:#6b1f31
-  A[Recruit 3+ trustees<br/>incl. independent majority<br/>Nov 28 – Dec 3]:::crit --> B[File Ohio Articles<br/>of Incorporation (nonprofit)<br/>Dec 3–4, request expedite]:::crit
+  A[Recruit 3+ trustees<br/>incl. independent majority<br/>Nov 28 – Dec 3]:::crit --> B["File Ohio Articles<br/>of Incorporation (nonprofit)<br/>Dec 3–4, request expedite"]:::crit
   B --> C[IRS EIN online<br/>same day as approval<br/>~Dec 7]:::crit
   C --> D[SAM.gov registration<br/>Dec 7–8 submit]:::crit
   D --> E{IRS TIN match<br/>new EINs can take<br/>~2–5 weeks}:::crit
@@ -29,9 +29,9 @@ flowchart LR
   F --> G[Grants.gov: EBiz POC → AOR<br/>≤ Jan 14]:::crit
   F --> H[eRA Commons institution<br/>+ PD/PI account ≤ Jan 16]:::crit
   G & H --> I((Submit Jan 27))
-  B --> J[Organizational meeting:<br/>adopt Regulations (bylaws),<br/>COI policy, officers, bank]
-  J --> K[Bank account + accounting<br/>system (2 CFR 200.302)]
-  J --> L[Form 1023 (full, not EZ)<br/>file by Feb–Mar 2027]
+  B --> J["Organizational meeting:<br/>adopt Regulations (bylaws),<br/>COI policy, officers, bank"]
+  J --> K["Bank account + accounting<br/>system (2 CFR 200.302)"]
+  J --> L["Form 1023 (full, not EZ)<br/>file by Feb–Mar 2027"]
   B --> M[Ohio AG charitable<br/>registration]
   F -. "not active by Jan 12" .-> X[Fallback: LLC or university applies,<br/>EDMHS.org as partner/subrecipient]
 ```
