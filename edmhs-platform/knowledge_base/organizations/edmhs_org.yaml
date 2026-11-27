@@ -1,6 +1,8 @@
 # EDMHS.org: nonprofit / community arm. Values marked TODO must be completed before submission.
 id: edmhs_org
-legal_name: "Empowered Disease Management Health Services (EDMHS.org)"   # TODO confirm exact incorporated name
+legal_name: "TODO: exact name as filed with the Ohio Secretary of State (e.g., EDMHS.org, Inc.)"
+decision: "Applicant for CDC RFA-CE-27-013 (decided 2026-11-27); fallback to LLC/university if SAM inactive by 2027-01-12"
+formation_status: "planned: Ohio Articles (Form 532B) -> EIN -> SAM.gov -> Grants.gov/eRA; Form 1023 in parallel"
 applicant_type: nonprofit
 tax_status: "TODO: 501(c)(3) determination letter, or 'nonprofit without 501(c)(3)'"
 ein: "TODO"
@@ -27,7 +29,7 @@ leadership:
       inner-city practice; MS Computer Information Systems (Boston University); certified Professional
       Data Scientist (2022); former USAF communications-electronics officer (EUCOM, Defense Data
       Network); 50 years of martial arts training (Goju Ryu, Shaolin, Qi Gong, Yang Tai Chi).
-board: []          # TODO nonprofit governing board (names, affiliations)
+board: []          # TODO >= 3 trustees, independent majority (see docs/entity/edmhs_org_formation_plan.md)
 financials:
   annual_budget: "TODO"
   audit: "TODO: most recent financial statements; Single Audit required if >= $1,000,000 federal expenditure/yr (2 CFR 200.501)"

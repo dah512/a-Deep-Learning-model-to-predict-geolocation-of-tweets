@@ -9,7 +9,7 @@
 | Ceiling | $1,200,000 per award. $30M ÷ 5 expected awards = $6M each, which implies **five budget years at ≈$1.2M/year** (confirm against the NOFO when it posts) |
 | Cost share | None required |
 | Key dates (forecast) | NOFO posts **Dec 1, 2026** · Application due **Feb 1, 2027** · Award **Aug 28, 2027** · Start **Sep 30, 2027** |
-| Applicant (proposed) | **EDMHS.org** (Empowered Disease Management Health Services, nonprofit arm), with EDM Health Services, LLC as technology subrecipient. See §0 for the eligibility decision |
+| Applicant | **EDMHS.org** (nonprofit; decided 2026-11-27; Ohio incorporation in progress). EDM Health Services, LLC participates only as an at-cost technology vendor/subrecipient under a conflict-of-interest plan. See §0 and `docs/entity/edmhs_org_formation_plan.md` |
 | Program Director/PI (proposed) | Darrell A. Hall, MD, MSCIS |
 | Target population | Youth aged **10–24** in Toledo ZIP codes 43607, 43610 and 43620 (Junction, Englewood, Old West End and adjacent neighborhoods), Lucas County, Ohio |
 | Status | **DRAFT v0.1, 2026-11-27.** Written against the forecast summary. The full NOFO (priority research areas, page limits, scoring criteria) is due Dec 1, 2026. Every section marked ⚠ must be revised against it. |
@@ -24,7 +24,7 @@
    - *Option A, EDMHS.org nonprofit as applicant (preferred for community origin).* It requires an active SAM.gov registration with its own UEI, a Grants.gov organizational account (E-Business Point of Contact) and an eRA Commons institutional account. **SAM registration commonly takes 2–6 weeks.** It must start the week of Dec 1, 2026, or this option fails the Feb 1 deadline.
    - *Option B, EDM Health Services, LLC as applicant.* SAM UEI FSMJREGJGPJ3 and CAGE 91US7 are already on file. Under 2 CFR 200.400(g) and 45 CFR 75.216 a for-profit recipient may earn no profit or fee on the award. EDMHS.org then participates as the community partner and subrecipient.
    - *Option C, university applicant (UToledo or BGSU) with EDMHS as subrecipient.* It is the most competitive for the **early-career researcher training** core element and for IRB capacity. EDMHS keeps program ownership through the subaward.
-   - **Recommendation:** apply under Option A **if** SAM and eRA registration can complete by Jan 15, 2027. Otherwise use Option B. Under either option, secure a university partner as the evaluation and training co-lead (see §6).
+   - **DECIDED 2026-11-27: Option A (EDMHS.org).** 501(c)(3) status is not required (nonprofits without 501(c)(3) are eligible). **Fallback trigger:** if SAM.gov has not activated the nonprofit by **Jan 12, 2027**, submit under Option B or C with EDMHS.org as the named community partner. Under any option, secure a university partner as the evaluation and training co-lead (see §6).
 2. **Age range.** ICT currently serves ages 6–16. The NOFO population is **10–24**. ICT-YVPC extends ICT upward with a tiered pathway: 10–14 participants, 15–17 junior leaders, and 18–24 paid peer mentors and assistant instructors. Ages 6–9 continue on other funding and are not counted in YVPC outcomes.
 3. **Two distinct approaches** are required, each mapped to ≥2 NOFO priority research areas [NOFO]. They are proposed below as **Approach A (ICT, individual and relationship level)** and **Approach B (Corner-to-Commons, community level)**.
 

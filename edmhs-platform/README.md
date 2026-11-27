@@ -38,6 +38,23 @@ docker compose up --build
 | http://localhost:8000/docs | EDMHS API (intake + `/gpcs`) |
 | http://localhost:8001/__docs__/ | GPCS R API |
 
+## Deploy edmhs.org (Firebase Hosting + Cloud Run + Cloud SQL)
+
+```
+browser ─► Firebase Hosting (edmhs.org) ─┬─ static site (site/edmhs-org)
+                                         └─ /api/** ─► Cloud Run "edmhs-api" ─► Cloud SQL Postgres 16
+                                                          (secrets from Secret Manager)
+```
+
+1. Create the nonprofit's GitHub repository and copy this folder to its root. Move `deploy/github-workflows/deploy.yml` to `.github/workflows/`.
+2. On your computer, signed in with `gcloud auth login` and with `cloud-sql-proxy` and `psql` installed, run:
+   `GITHUB_REPO=<org>/edmhs-org BILLING_ACCOUNT=<id> ./deploy/bootstrap_gcp.sh`
+   Project IDs and Firebase site names are global. If `edmhs-org` is taken, set `PROJECT=...`, change `site` in `firebase.json`, and set the `FIREBASE_SITE` repository variable.
+3. Add the repository variables the script prints. Every push to `main` then tests and deploys.
+4. Firebase console → Hosting → Add custom domain → `edmhs.org` and `www.edmhs.org`, then add the DNS records at your registrar.
+
+The nonprofit formation steps are in `docs/entity/edmhs_org_formation_plan.md`.
+
 ## GPCS from the command line
 
 ```bash

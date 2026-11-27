@@ -43,3 +43,11 @@ def test_adult_peer_mentor_without_guardian():
 def test_summary_suppresses_small_cells():
     rows = client.get("/analytics/enrollment-summary").json()
     assert rows and all(r["n"] == "<5" or r["n"] >= 5 for r in rows)
+
+
+def test_served_prefix_routes():
+    from app.main import served
+    c = TestClient(served)
+    assert c.get("/api/health").json() == {"ok": True}
+    assert c.get("/health").json() == {"ok": True}
+    assert c.get("/api/gpcs/intake/nonprofit").status_code == 200

@@ -23,7 +23,7 @@ from gpcs.api import app as gpcs_app
 SERVICE_ZIPS = {"43607", "43610", "43620"}
 app = FastAPI(title="EDMHS API", version="0.1.0")
 app.add_middleware(CORSMiddleware,
-                   allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:5173,https://ict.edmhs.us,https://edmhs.org").split(","),
+                   allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:5173,https://ict.edmhs.us,https://ict.edmhs.org,https://edmhs.org,https://www.edmhs.org").split(","),
                    allow_methods=["GET", "POST"], allow_headers=["Content-Type"])
 app.mount("/gpcs", gpcs_app)
 
@@ -113,3 +113,10 @@ def enrollment_summary():
                        FROM analytics.participant_deid GROUP BY 1, 2, 3 ORDER BY 1, 2, 3""")
         rows = cur.fetchall()
     return [{"program": p, "dev_band": b, "zip": z, "n": n if n >= 5 else "<5"} for p, b, z, n in rows]
+
+
+# Entry point for Cloud Run behind Firebase Hosting, which forwards /api/** unchanged.
+# Serves the same routes at /api/... (hosting rewrite) and at / (direct or compose nginx).
+served = FastAPI(title="EDMHS API (served)", version=app.version, docs_url=None, redoc_url=None)
+served.mount("/api", app)
+served.mount("/", app)
